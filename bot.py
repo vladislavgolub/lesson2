@@ -55,8 +55,7 @@ def main():
             update.message.reply_text(user_text)
 
         elif user_message[1] == 'earth':
-            user_text = ephem.Earth(date)
-            user_text = str(user_text)
+            user_text = 'Earth is bad choice'
             print(user_text)
             update.message.reply_text(user_text)
  
