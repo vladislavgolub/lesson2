@@ -1,9 +1,7 @@
 def ask_user():
-	
-	answer = ''
+		answer = ''
 	while answer != 'Хорошо':
 		answer = input('Как дела? ')
-
 
 
 ask_user()

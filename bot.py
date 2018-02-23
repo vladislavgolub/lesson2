@@ -28,29 +28,20 @@ def main():
         update.message.reply_text(user_text)
 
    
-
-
-
-
-
-    def planet_identication(bot, update):
-        
+    def plan_init(bot, update):        
         user_text = update.message.text
         user_text = user_text.lower()
-        user_message = user_text.split(' ') 
-#считаем, что название планеты отделяется от команды пробелом, тогда название планеты будет вторым элементом
-# списка (элементом с номером 1) user_message
-
-
+        user_message = user_text.split(' ') #считаем, что название планеты отделяется от команды пробелом, тогда название планеты будет вторым элементом
+                                            # списка (элементом с номером 1) user_message
         if user_message[1] == 'mercury':
             user_text = ephem.Mercury(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
 
         elif user_message[1] == 'venus':
             user_text = ephem.Venus(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
 
@@ -61,31 +52,31 @@ def main():
  
         elif user_message[1] == 'mars':
             user_text = ephem.Mars(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
 
         elif user_message[1] == 'jupiter':
             user_text = ephem.Jupiter(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
  
         elif user_message[1] == 'saturn':
             user_text = ephem.Saturn(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
 
         elif user_message[1] == 'uranus':
             user_text = ephem.Uranus(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
  
         elif user_message[1] == 'neptune':
             user_text = ephem.Neptune(date)
-            user_text = str(user_text)
+            user_text = ephem.constellation(user_text)
             print(user_text)
             update.message.reply_text(user_text)
 
@@ -101,13 +92,13 @@ def main():
 
     dp = updater.dispatcher
 
-    dp.add_handler(CommandHandler("planet", planet_identication)) #Вызов planet_identification командой planet
+    dp.add_handler(CommandHandler("planet", plan_init)) #Вызов planet_identification командой planet
     dp.add_handler(CommandHandler("start", greet_user)) # Вызов greet_user командой start
-    dp.add_handler(MessageHandler(Filters.text,talk_to_me)) #В случае получения текстового сообщения вызывает talk_to_me 
+    dp.add_handler(MessageHandler(Filters.text, talk_to_me)) #В случае получения текстового сообщения вызывает talk_to_me 
                                                             #(команда не считается текстом)
-
-
     updater.start_polling() # Подключение
     updater.idle()          # бота
 
-main()
+
+if __name__ == "__main__":
+    main()

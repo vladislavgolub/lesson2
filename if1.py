@@ -1,10 +1,10 @@
-age = input('Сколько вам лет?	')
+age = input('Сколько вам лет?   ')
 age = int(age)
 if age < 7:
-	print('Детский сад')
+    print('Детский сад')
 elif age < 18:
-	print('Школа')
+    print('Школа')
 elif age < 23:
-	print('ВУЗ')
+    print('ВУЗ')
 else:
-	print('Работа')
+    print('Работа')
